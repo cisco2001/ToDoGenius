@@ -1,0 +1,149 @@
+{% extends 'task_manager/base.html' %}
+{% load static %}
+{% block content %}
+<!-- navbar section -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="navbar-logo">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'task_manager/logo.png' %}" alt="Logo">
+    </a>
+  </div>
+  <div class="navbar-search">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+  </div>
+  <div class="navbar-bell">
+    <a class="nav-link" href="#">
+      <i class="fas fa-bell"></i>
+    </a>
+  </div>
+</nav>
+<!-- end of navbar section -->
+<!-- update and filter section -->
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div class="item-container">
+      <div class="text-right">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">+ add task</button>
+      </div>
+    </div>
+    <div class="item-container">
+      <div class="text-center">
+        <div class="form-group">
+          <select class="form-control" id="filter">
+            <option>filter your to-do list</option>
+            <option>Completed tasks</option>
+            <option>not yet</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="item-container">
+      <div class="text-left">
+        <i class="far fa-calendar-alt fa-lg"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of update and filter section -->
+<!-- to-do list section -->
+<div class="container">
+  <h3>To-Do List</h3>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="todo-item">
+        <div class="checkbox-green">
+          <input type="checkbox" id="todo1">
+        </div>
+        <div class="title" style="margin-left: 5px;">To-Do Item 1</div>
+        <div class="actions">
+          <i class="fas fa-edit"></i>
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="todo-item">
+        <div class="checkbox-green">
+          <input type="checkbox" id="todo2">
+        </div>
+        <div class="title" style="margin-left: 5px;">To-Do Item 2</div>
+        <div class="actions">
+          <i class="fas fa-edit"></i>
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </li>
+    <!-- Add more to-do items here -->
+  </ul>
+</div>
+<!-- end of to-do list section -->
+<!-- modal section -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Modal Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>Modal content goes here.</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end of modal section -->
+
+<!-- footer section -->
+<footer class="text-center text-white" style="background-color: #f1f1f1;" id="footer">
+  <!-- Grid container -->
+  <div class="container pt-2">
+    <!-- Section: Social media -->
+    <section class="mb-1">
+      <!-- Twitter -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://twitter.com/mtwa_mgimwa"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://www.linkedin.com/in/mtwa-mgimwa-76b77320a/"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://github.com/cisco2001"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 ToDoGenius
+  </div>
+  <!-- Copyright -->
+</footer>
+{% endblock content %}

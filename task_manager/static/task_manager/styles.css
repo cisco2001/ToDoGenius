@@ -1,0 +1,75 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  min-height: 100vh;
+}
+/* navbar section */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  .navbar-logo img {
+    max-height: 50px;
+  }
+
+  .navbar-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-search input[type="search"] {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .navbar-bell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+/* end of navbar section */
+/* filter section */
+.container {
+  padding: 20px;
+}
+.item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* end of filter section */
+/* footer section */
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+/* end of footer section */
+.todo-item {
+  display: flex;
+  align-items: center;
+}
+.todo-item .actions {
+  margin-left: auto;
+}
+.todo-item .actions i {
+  margin-left: 10px;
+}
+.checkbox-green input[type="checkbox"]:checked + label {
+  color: green;
+}

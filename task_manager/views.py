@@ -1,5 +1,5 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 base_url = "http://dev.hisptz.com/dhsi2/api/dataStore/mtwa_johakim_mgimwa/"
 authentication_credentials = ("admin", "district")
@@ -18,11 +18,13 @@ def create_session(credentials):
 # function to allow user to view his or her to-do list
 def view_tasks(request):
     if request.method == "GET":
+        template_name = 'task_manager/home.html'
         session = create_session(authentication_credentials)
-        response = session.get(complete_url)
-        if response.status_code == 200:
+        response = session.get(base_url + "?fields=.")
+        if response.status_code != 200:
             print("successful")
             #return respsonse to the user
+            return render(request, template_name)
         if response.status_code == 404:
             print("unsuccessful")
             #tell user this is his first time, add items and they will appear
@@ -60,3 +62,7 @@ def edit_task(request): # this seem to be a more general function
     # update tasks
     # return feedback
     pass 
+
+# function to redirect user
+def redirect_view(request):
+    return redirect('/view_tasks/')
