@@ -23,7 +23,7 @@
   <div class="d-flex justify-content-between">
     <div class="item-container">
       <div class="text-right">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">+ add task</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">+ add task</button>
       </div>
     </div>
     <div class="item-container">
@@ -78,31 +78,32 @@
 </div>
 <!-- end of to-do list section -->
 <!-- modal section -->
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal header -->
-      <div class="modal-header">
-        <h5 class="modal-title">Modal Title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+      <div class="modal-content w-75">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel4">Add to-do item</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+              <form>
+                  <!-- Name input -->
+                  <div class="form-outline mb-4">
+                      <input type="text" id="name4" class="form-control" placeholder="title"/>
+                  </div>
+                  <!-- textarea input -->
+                  <div class="form-outline mb-4">
+                      <textarea id="textarea4" rows="4" class="form-control" placeholder="description"></textarea>
+                  </div>
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block">Add</button>
+              </form>
+          </div>
       </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <p>Modal content goes here.</p>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
   </div>
 </div>
-
+<!-- Modal -->
 <!-- end of modal section -->
 
 <!-- footer section -->

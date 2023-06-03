@@ -70,6 +70,3 @@ body {
 .todo-item .actions i {
   margin-left: 10px;
 }
-.checkbox-green input[type="checkbox"]:checked + label {
-  color: green;
-}
