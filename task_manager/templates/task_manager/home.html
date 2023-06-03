@@ -45,67 +45,12 @@
   </div>
 </div>
 <!-- end of update and filter section -->
-<!-- to-do list section -->
-<div class="container">
-  <h3>To-Do List</h3>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <div class="todo-item">
-        <div class="checkbox-green">
-          <input type="checkbox" id="todo1">
-        </div>
-        <div class="title" style="margin-left: 5px;">To-Do Item 1</div>
-        <div class="actions">
-          <i class="fas fa-edit"></i>
-          <i class="fas fa-trash-alt"></i>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item">
-      <div class="todo-item">
-        <div class="checkbox-green">
-          <input type="checkbox" id="todo2">
-        </div>
-        <div class="title" style="margin-left: 5px;">To-Do Item 2</div>
-        <div class="actions">
-          <i class="fas fa-edit"></i>
-          <i class="fas fa-trash-alt"></i>
-        </div>
-      </div>
-    </li>
-    <!-- Add more to-do items here -->
-  </ul>
-</div>
-<!-- end of to-do list section -->
-<!-- modal section -->
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
-      <div class="modal-content w-75">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel4">Add to-do item</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body p-4">
-              <form>
-                  <!-- Name input -->
-                  <div class="form-outline mb-4">
-                      <input type="text" id="name4" class="form-control" placeholder="title"/>
-                  </div>
-                  <!-- textarea input -->
-                  <div class="form-outline mb-4">
-                      <textarea id="textarea4" rows="4" class="form-control" placeholder="description"></textarea>
-                  </div>
-                  <!-- Submit button -->
-                  <button type="submit" class="btn btn-primary btn-block">Add</button>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
-<!-- Modal -->
-<!-- end of modal section -->
-
+{% if api_response.status_code == 200 %}
+  {% include 'task_manager/to-do.html' with included_titles=titles %}
+{% elif api_response.status_code == 404 %}
+  {% include 'task_manager/error.html' %}
+{% endif %}
+{% include 'task_manager/modal.html' %}
 <!-- footer section -->
 <footer class="text-center text-white" style="background-color: #f1f1f1;" id="footer">
   <!-- Grid container -->
