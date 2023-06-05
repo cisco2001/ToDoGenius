@@ -74,3 +74,21 @@ body {
 /* modal section */
 .modal {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;}
+/* end of omdal section */
+.icon {
+  color: black; /* Default color of the icon */
+  transition: color 0.3s; /* Smooth transition effect */
+}
+
+.icon:hover {
+  color: red !important; /* Color to be applied when hovering over the icon */
+}
+.completed-task {
+  color: green;
+}
+ul {
+  list-style-type: none;
+}
+.hide {
+  display: none;
+}

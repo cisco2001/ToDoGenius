@@ -30,8 +30,8 @@
       <div class="text-center">
         <div class="form-group">
           <select class="form-control" id="filter">
-            <option>Pending tasks</option>
-            <option>Completed tasks</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
           </select>
         </div>
       </div>
@@ -45,7 +45,7 @@
 </div>
 <!-- end of update and filter section -->
 {% if api_response.status_code == 200 %}
-  {% include 'task_manager/to-do.html' with included_titles=titles %}
+  {% include 'task_manager/to-do.html' with included_entries=entries %}
 {% elif api_response.status_code == 404 %}
   {% include 'task_manager/error.html' %}
 {% endif %}

@@ -3,22 +3,29 @@
 {% block content %}
 <div class="container">
   <h3>To-Do List</h3>
-  <ul class="list-group">
-    {% for title in included_titles %}
-    {% if not title.completed %}
-    <li class="list-group-item" itemid="{{ title.key }}">
+  <ul class="list-group" id="task-list">
+    {% for entry in included_entries %}
+    <li class="list-group-item {% if entry.value.completed %}completed hide{% endif %}" itemid="{{ entry.key }}">
       <div class="todo-item">
-        <div class="checkbox-green">
-          <input type="checkbox" id="todo">
+        <div>
+          {%if not entry.value.completed %}
+          <input type="checkbox" class="todo_checkbox" id="{{ entry.key }}">
+          {% endif %}
         </div>
-        <div class="title" style="margin-left: 5px;">{{ title.title }}</div>
+        <div class="title" style="margin-left: 5px;">{{ entry.value.title }}</div>
+        <div class="description" style="display: none;">{{ entry.value.description }}</div>
         <div class="actions">
+          {% if not entry.value.completed %}
           <i class="fas fa-edit"></i>
-          <i class="fas fa-trash-alt"></i>
+          {% else %}
+          <i class="fas fa-check-circle completed-task"></i>
+          {% endif %}
+          <a href="#" class="delete-item" data-itemid="{{ entry.key }}">
+            <i class="fas fa-trash-alt icon"></i>
+          </a>
         </div>
       </div>
     </li>
-    {% endif %}
     {% endfor %}
   </ul>
 </div>
