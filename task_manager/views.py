@@ -1,6 +1,7 @@
 import requests
 import datetime
 import json
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 base_url = "https://dev.hisptz.com/dhis2/api/dataStore/mtwa_johakim_mgimwa/"
@@ -54,17 +55,25 @@ def create_task(request):
         url = base_url + "todo_3"
         #obtain response and check then proceed to send feedback to user about task performed
         response = requests.post(url, json=data, auth=authentication_credentials)
-        print(response.text)
         # redirect to the page that shows list of tasks
         return redirect('home')
 
 # function to allow user to update tasks
-def update_tasks(request):
-    session = create_session(authentication_credentials)
-    if request.method == "PUT":
+def update_task(request):
+    if request.method == "PUT" and request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         # obtain data from the user, check if they match with data model the send it
+        #title = request.PUT["title"]
+        #description = request.PUT["description"]
+        current_timestamp = datetime.datetime.now().isoformat()
+
+        data = {
+            "id": "to-do_1",
+           # "title": title,
+            #"description": description,
+            "lastUpdated": current_timestamp
+        }
         # obtain reponse and then send feedback to the user
-        pass
+        return JsonResponse({'message': 'Item marked as completed.'})
 
 # function to allow user to delete tasks
 def delete_task(request):

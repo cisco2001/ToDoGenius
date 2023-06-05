@@ -1,22 +1,25 @@
 {% extends 'task_manager/base.html' %}
+{% load static %}
 {% block content %}
 <div class="container">
-    <h3>To-Do List</h3>
-    <ul class="list-group">
-      {% for title in included_titles %}
-      <li class="list-group-item">
-        <div class="todo-item">
-          <div class="checkbox-green">
-            <input type="checkbox" id="todo1">
-          </div>
-          <div class="title" style="margin-left: 5px;">{{ title.title }}</div>
-          <div class="actions">
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash-alt"></i>
-          </div>
+  <h3>To-Do List</h3>
+  <ul class="list-group">
+    {% for title in included_titles %}
+    {% if not title.completed %}
+    <li class="list-group-item" itemid="{{ title.key }}">
+      <div class="todo-item">
+        <div class="checkbox-green">
+          <input type="checkbox" id="todo">
         </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
+        <div class="title" style="margin-left: 5px;">{{ title.title }}</div>
+        <div class="actions">
+          <i class="fas fa-edit"></i>
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
 {% endblock content %}
