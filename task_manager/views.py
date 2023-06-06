@@ -34,6 +34,19 @@ def view_tasks(request):
         }
         return render(request, template_name, context)
 
+def all_todos(request):
+    session = create_session(authentication_credentials)
+    response = session.get(base_url + "?fields=.")
+    if response.status_code == 200:
+        items = response.json()
+        entries = items["entries"]
+        extracted_data = [
+            {"title": item["value"]["title"], "start": item["value"]["created"]}
+            for item in entries
+        ]
+        return JsonResponse(extracted_data, safe=False)
+    else:
+        return HttpResponse(status=response.status_code)
 
 # function to allow user to create tasks
 def create_task(request):
@@ -52,7 +65,7 @@ def create_task(request):
             "lastUpdated": ""
         }
         # obtain data from user, check if they match with data model in the API then send it
-        url = base_url + "todo_3"
+        url = base_url + "todo_4"
         #obtain response and check then proceed to send feedback to user about task performed
         response = requests.post(url, json=data, auth=authentication_credentials)
         # redirect to the page that shows list of tasks

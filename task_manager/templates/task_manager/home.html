@@ -4,12 +4,12 @@
 <!-- navbar section -->
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="navbar-logo">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'home' %}">
       <img src="{% static 'task_manager/logo.png' %}" alt="Logo">
     </a>
   </div>
   <div class="navbar-search">
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control" id="search-box" type="search" placeholder="Search" aria-label="Search">
   </div>
   <div class="navbar-bell">
     <a class="nav-link" href="#">
@@ -38,17 +38,29 @@
     </div>
     <div class="item-container">
       <div class="text-left">
-        <i class="far fa-calendar-alt fa-lg"></i>
+        <a href="#" id="clickableCalendarIcon">
+          <i class="far fa-calendar-alt fa-lg"></i>
+        </a>
+        <a href="#" id="listIcon" class="hide">
+          <i class="far fa-list-alt fa-lg"></i>
+        </a>
       </div>
     </div>
   </div>
 </div>
 <!-- end of update and filter section -->
+<div id="content">
+<div id="list_section">
 {% if api_response.status_code == 200 %}
   {% include 'task_manager/to-do.html' with included_entries=entries %}
 {% elif api_response.status_code == 404 %}
   {% include 'task_manager/error.html' %}
 {% endif %}
+</div>
+<div id="calendar_section" class="hide">
+  {% include 'task_manager/calendar_view.html' %}
+</div>
+</div>
 {% include 'task_manager/modal.html' %}
 <!-- footer section -->
 <footer class="text-center text-white" style="background-color: #f1f1f1;" id="footer">
@@ -91,4 +103,5 @@
   </div>
   <!-- Copyright -->
 </footer>
+<script src="{% static 'task_manager/search.js' %}"></script>
 {% endblock content %}

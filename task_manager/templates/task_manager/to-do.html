@@ -12,11 +12,13 @@
           <input type="checkbox" class="todo_checkbox" id="{{ entry.key }}">
           {% endif %}
         </div>
-        <div class="title" style="margin-left: 5px;">{{ entry.value.title }}</div>
-        <div class="description" style="display: none;">{{ entry.value.description }}</div>
+        <div class="title" id="item_title"style="margin-left: 5px;">{{ entry.value.title }}</div>
+        <div class="description" id="item_description" style="display: none;">{{ entry.value.description }}</div>
         <div class="actions">
           {% if not entry.value.completed %}
-          <i class="fas fa-edit"></i>
+          <a href="#" id="clickableEditIcon" class="clickable-icon" data-bs-toggle="modal" data-bs-target="#myModal" data-itemid="{{ entry.key }}">
+            <i class="fas fa-edit"></i>
+          </a>
           {% else %}
           <i class="fas fa-check-circle completed-task"></i>
           {% endif %}

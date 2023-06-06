@@ -111,3 +111,63 @@ function toggleDescription(taskItem) {
   var descriptionElement = taskItem.find('.description');
   descriptionElement.slideToggle();
 }
+
+
+/* edit section */
+$(document).ready(function() {
+  $('.clickable-icon').click(function(event) {
+    event.preventDefault();
+    var itemId = $(this).data('itemid');
+    let titleId = document.getElementById("item_title")
+    let descriptionID = document.getElementById("item_description")
+    document.getElementById('modal_title').innerText = 'Edit task';
+    document.getElementById('textarea4').setAttribute('value', descriptionID.innerText);
+    document.getElementById('name4').setAttribute('value', titleId.innerText);
+    console.log(titleId.innerText, descriptionID.innerText);
+    showModal(itemId);
+  });
+});
+
+function showModal(itemId) {
+  $('#create_task').attr('action', '/mark_completed/' + itemId);
+  $('#create_task').attr('method', 'PUT');
+}
+
+/* calendar section */
+$(document).ready(function() {
+  $('#clickableCalendarIcon').click(function(e) {
+    e.preventDefault(); // Prevent the default behavior of the anchor element
+    $(this).hide(); // Hide the calendar icon
+    $('#list_section').hide(); // Hide the list section
+    $('#listIcon').show(); // Show the list icon
+    $('#calendar_section').show(); // Show the calendar section
+  });
+
+  $('#listIcon').click(function(e) {
+    e.preventDefault(); // Prevent the default behavior of the anchor element
+    $(this).hide(); // Hide the list icon
+    $('#clickableCalendarIcon').show(); // Show the calendar icon
+    $('#calendar_section').hide(); // Hide the calendar section
+    $('#list_section').show(); // Show the list section
+  });
+});
+
+/*$(document).ready(function() {
+  $('#clickableCalendarIcon').click(function(event) {
+    event.preventDefault();
+    loadIncludedTemplate();
+  });
+});
+
+function loadIncludedTemplate() {
+  $.ajax({
+    url: '/calendar/',
+    type: 'GET',
+    success: function(response) {
+      $('#templateContainer').html(response);
+    },
+    error: function(error) {
+      console.error('Error loading included template:', error);
+    }
+  });
+}*/

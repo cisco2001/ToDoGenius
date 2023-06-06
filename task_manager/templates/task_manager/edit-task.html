@@ -5,11 +5,11 @@
     <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
         <div class="modal-content w-75">
             <div class="modal-header">
-                <h5 class="modal-title" id="modal_title">Add to-do item</h5>
+                <h5 class="modal-title" id="modal_title">Edit to-do item</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
-                <form id="create_task" action="{% url 'create_task' %}" method="POST">
+                <form id="create_task" action="{% url 'update_task' %}" method="PUT">
                     {% csrf_token %}
                     <!-- Name input -->
                     <div class="form-outline mb-4">
