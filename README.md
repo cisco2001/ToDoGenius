@@ -57,7 +57,7 @@ In the backend, Django is used to interact with the API, while in the frontend, 
 
 
 ### Sample screenshot
-<img src="task_manager/static/task_manager/todo_web_app.png" alt="web app screenshot" title="Title" height="100px"/>
+<img src="task_manager/static/task_manager/todo_web_app.png" alt="web app screenshot" title="Title" height="300px" width="700px"/>
 
 ## Author
 
