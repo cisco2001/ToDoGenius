@@ -9,7 +9,6 @@ TODOGENIUS is a user-friendly application that helps you stay organized and mana
 - [Tools of Trade](#tools-of-trade)
 - [Getting Started](#getting-started)
 - [Author](#author)
-- [License](#license)
 
 ## How the System Works
 
@@ -39,12 +38,17 @@ In the backend, Django is used to interact with the API, while in the frontend, 
 
 1. Clone the repository.
 2. Create and activate a virtual environment.
+    ```
     python3 -m venv .venv
     source .venv/bin/activate
+    ```
 3. Install the required dependencies using pip from requirements.txt file.
-    pip install -r requirements.txt
+    ```pip install -r requirements.txt
+    ```
 6. Start the development server.
+    ```
     python manage.py runserver
+    ```
 
 
 ### Usage
