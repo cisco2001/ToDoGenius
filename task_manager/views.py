@@ -2,6 +2,7 @@ import requests
 import datetime
 import json
 from django.http import JsonResponse
+from django.http import HttpResponse
 from django.http import QueryDict
 from django.shortcuts import render, redirect
 
@@ -22,16 +23,24 @@ def create_session(credentials):
 # function to allow user to view his or her to-do list
 def view_tasks(request):
     if request.method == "GET":
+        keyword = request.GET.get('keyword')
         template_name = 'task_manager/home.html'
         session = create_session(authentication_credentials)
         response = session.get(base_url + "?fields=.")
+        context = {}
         if response.status_code == 200:
             items = response.json()
             entries = items["entries"]
-        context = {
-        'api_response': response,
-        'entries': entries
-        }
+
+            if keyword:
+                entries = filter(lambda entry: keyword in entry["value"]["title"] or keyword in entry["value"]["description"], entries)
+                filtered_entries = list(entries)
+
+                # Return the filtered entries as JSON response
+                context["entries"] = filtered_entries
+            else:
+                context["entries"] = entries
+        context["api_response"] = response
         return render(request, template_name, context)
 
 def all_todos(request):
@@ -55,9 +64,23 @@ def create_task(request):
         title = request.POST["title"]
         description = request.POST['description']
         current_timestamp = datetime.datetime.now().isoformat()
+        id = None
 
+        # determine the latest ID and increment to obtain the current ID to use
+        session = create_session(authentication_credentials)
+        response = session.get(base_url + "?fields=.")
+        if response.status_code == 200:
+            data = response.json()
+            if not len(data['entries']) == 0:
+                last_entry_key = data['entries'][-1]['key']
+                id = f"todo_{int(last_entry_key[last_entry_key.index('_') + 1:]) + 1}"
+                print(id)
+            else:
+                id = 'todo_1'
+        elif response.status_code == 404:
+            id = 'todo_1'
         data = {
-            "id": "to-do_1",
+            "id": id,
             "title": title,
             "description": description,
             "created": current_timestamp,
@@ -65,7 +88,7 @@ def create_task(request):
             "lastUpdated": ""
         }
         # obtain data from user, check if they match with data model in the API then send it
-        url = base_url + "todo_4"
+        url = base_url + id
         #obtain response and check then proceed to send feedback to user about task performed
         response = requests.post(url, json=data, auth=authentication_credentials)
         # redirect to the page that shows list of tasks
@@ -89,6 +112,21 @@ def update_task(request):
         response = requests.put(url, json=data, auth=authentication_credentials)
         # obtain reponse and then send feedback to the user
         return JsonResponse({'message': 'Item marked as completed.'})
+    elif request.method == "POST": # edit item contents
+        title = request.POST['title']
+        description = request.POST['description']
+        id = request.POST['item_id']
+        url = base_url + id
+        session = create_session(authentication_credentials)
+        response = session.get(url)
+        data = response.json()
+        data['title'] = title
+        data['description'] = description
+        current_timestamp = datetime.datetime.now().isoformat()
+        data["lastUpdated"] = current_timestamp
+        response = requests.put(url, json=data, auth=authentication_credentials)
+        print(response)
+        return redirect('home')
 
 # function to allow user to delete tasks
 def delete_task(request):

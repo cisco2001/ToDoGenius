@@ -1,8 +1,8 @@
-# Project Name
+# TODOGENIUS
 
-![Project Logo](path/to/logo.png)
+![Project Logo](task_manager/static/task_manager/logo.png)
 
-Short description or introduction of the project.
+TODOGENIUS is a user-friendly application that helps you stay organized and manage your tasks efficiently. The app combines the simplicity of a to-do list with the functionality of FullCalendar, a powerful JavaScript library for creating interactive calendars.
 
 ## Table of Contents
 - [How the System Works](#how-the-system-works)
@@ -29,17 +29,14 @@ Explain the tools or technologies used in the project and why they were chosen. 
 
 ### Prerequisites
 
-- Python (version x.x.x)
-- Django (version x.x.x)
-- Other dependencies...
+- Python (version 3.10.8)
+- Django (version 4.2.1)
 
 ### Installation
 
 1. Clone the repository.
 2. Create and activate a virtual environment.
-3. Install the required dependencies using pip.
-4. Set up the database and migrations.
-5. Configure any necessary environment variables.
+3. Install the required dependencies using pip from requirements.txt file.
 6. Start the development server.
 
 Provide step-by-step instructions on how to set up and run the project locally. Include any configuration or setup steps required, such as database setup, environment variable configuration, or installation of dependencies. Make sure to mention any specific commands or configurations unique to your project.
@@ -52,4 +49,4 @@ Explain how to use the project or any specific features. Provide examples, code 
 
 - Full Name: Mtwa Johakim Mgimwa
 - GitHub: [github.com/cisco2001](https://github.com/cisco2001)
-- LinkedIn: [linkedin.com/in/cisco2001](https://linkedin.com/in/cisco2001)
+- LinkedIn: [linkedin.com/in/](https://linkedin.com/in/cisco2001)

@@ -55,6 +55,8 @@
   {% include 'task_manager/to-do.html' with included_entries=entries %}
 {% elif api_response.status_code == 404 %}
   {% include 'task_manager/error.html' %}
+{% elif api_response.status_code == 500 %}
+  {% include 'task_manager/500error.html' %}
 {% endif %}
 </div>
 <div id="calendar_section" class="hide">
@@ -62,6 +64,7 @@
 </div>
 </div>
 {% include 'task_manager/modal.html' %}
+{% include 'task_manager/edit-task.html' %}
 <!-- footer section -->
 <footer class="text-center text-white" style="background-color: #f1f1f1;" id="footer">
   <!-- Grid container -->

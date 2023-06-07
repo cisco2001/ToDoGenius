@@ -5,7 +5,7 @@ urlpatterns = [
     path('', redirect_view),
     path('tasks/', view_tasks, name='home'),
     path('add_task/', create_task, name='create_task'),
-    path('mark_completed/', update_task, name='update_task'),
+    path('update_task/', update_task, name='update_task'),
     path('delete_task/', delete_task, name='delete_task'),
     path('all_todos/', all_todos, name='all_tasks'),
 ]

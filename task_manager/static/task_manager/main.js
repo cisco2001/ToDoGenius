@@ -25,7 +25,7 @@ var csrftoken = getCookie('csrftoken');
 function markItemAsCompleted(itemId) {
   $.ajax({
     type: "PUT",
-    url: "/mark_completed/",
+    url: "/update_task/",
     headers: {
         "X-CSRFToken": csrftoken
     },
@@ -99,40 +99,21 @@ function filterTasks(selectedOption) {
 }
 
 /* show description section */
-$(document).ready(function() {
-  // Title click event
-  $(document).on('click', '.title', function() {
-    var taskItem = $(this).closest('.list-group-item');
-    toggleDescription(taskItem);
-  });
-});
-
-function toggleDescription(taskItem) {
-  var descriptionElement = taskItem.find('.description');
-  descriptionElement.slideToggle();
-}
-
 
 /* edit section */
 $(document).ready(function() {
   $('.clickable-icon').click(function(event) {
     event.preventDefault();
     var itemId = $(this).data('itemid');
-    let titleId = document.getElementById("item_title")
-    let descriptionID = document.getElementById("item_description")
-    document.getElementById('modal_title').innerText = 'Edit task';
-    document.getElementById('textarea4').setAttribute('value', descriptionID.innerText);
-    document.getElementById('name4').setAttribute('value', titleId.innerText);
+    let titleId = document.getElementById("item_title" + itemId)
+    let descriptionID = document.getElementById("item_description" + itemId)
+    document.getElementById('edit-text').textContent = descriptionID.innerText;
+    document.getElementById('edit-title').setAttribute('value', titleId.innerText);
+    console.log(itemId)
+    document.getElementById('edit-item-id').value = itemId;
     console.log(titleId.innerText, descriptionID.innerText);
-    showModal(itemId);
   });
 });
-
-function showModal(itemId) {
-  $('#create_task').attr('action', '/mark_completed/' + itemId);
-  $('#create_task').attr('method', 'PUT');
-}
-
 /* calendar section */
 $(document).ready(function() {
   $('#clickableCalendarIcon').click(function(e) {

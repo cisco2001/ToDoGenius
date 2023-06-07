@@ -1,26 +1,30 @@
 {% extends 'task_manager/base.html' %}
 {% load static %}
 {% block content %}
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModal" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="myModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
         <div class="modal-content w-75">
             <div class="modal-header">
-                <h5 class="modal-title" id="modal_title">Edit to-do item</h5>
+                <h5 class="modal-title" id="modal_title">Edit task</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4">
-                <form id="create_task" action="{% url 'update_task' %}" method="PUT">
+                <form id="update_task" action="{% url 'update_task' %}" method="POST">
                     {% csrf_token %}
                     <!-- Name input -->
                     <div class="form-outline mb-4">
-                        <input type="text" id="name4" class="form-control" placeholder="title" name="title" required/>
+                        <input type="text" id="edit-title" class="form-control" placeholder="title" name="title" required/>
                     </div>
                     <!-- textarea input -->
                     <div class="form-outline mb-4">
-                        <textarea id="textarea4" rows="4" class="form-control" placeholder="description" name="description" required></textarea>
+                        <textarea id="edit-text" rows="4" class="form-control" placeholder="description" name="description" required></textarea>
                     </div>
+                    <!-- method input -->
+                    <input type="hidden" name="_METHOD" value="PUT"/>
+                    <!-- itemId input -->
+                    <input type="hidden" id="edit-item-id" name="item_id" value="">
                     <!-- Submit button -->
-                    <input type="submit" class="btn btn-primary btn-block" value="add task"/>
+                    <input type="submit" class="btn btn-primary btn-block" value="save task"/>
                 </form>
             </div>
         </div>
