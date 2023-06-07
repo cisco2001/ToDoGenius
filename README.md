@@ -37,6 +37,7 @@ In the backend, Django is used to interact with the API, while in the frontend, 
 ### How to run
 
 1. Clone the repository.
+    'git clone https://github.com/cisco2001/ToDoGenius.git'
 2. Create and activate a virtual environment.
     ```
     python3 -m venv .venv
