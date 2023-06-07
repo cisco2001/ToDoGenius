@@ -26,7 +26,7 @@ Users access the web app, tasks are shown in both list and calendar formats. The
    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>&nbsp;
 </div>
-Explain the tools or technologies used in the project and why they were chosen. You can provide brief descriptions or links to the documentation of the tools. Include icons or logos of the tools to make the section visually appealing.
+In the backend, Django is used to interact with the API, while in the frontend, CSS, HTML, and JS are employed for the user interface.
 
 ## Getting Started
 
@@ -35,18 +35,20 @@ Explain the tools or technologies used in the project and why they were chosen. 
 - Python (version 3.10.8)
 - Django (version 4.2.1)
 
-### Installation
+### How to run
 
 1. Clone the repository.
 2. Create and activate a virtual environment.
+    python3 -m venv .venv
+    source .venv/bin/activate
 3. Install the required dependencies using pip from requirements.txt file.
+    pip install -r requirements.txt
 6. Start the development server.
+    python manage.py runserver
 
-Provide step-by-step instructions on how to set up and run the project locally. Include any configuration or setup steps required, such as database setup, environment variable configuration, or installation of dependencies. Make sure to mention any specific commands or configurations unique to your project.
 
 ### Usage
 
-Explain how to use the project or any specific features. Provide examples, code snippets, or screenshots if necessary.
 
 ## Author
 
