@@ -1,6 +1,6 @@
 # TODOGENIUS
 
-![Project Logo](task_manager/static/task_manager/logo.png){: width="200px" height="100px"}
+<img src="task_manager/static/task_manager/logo.png" alt="web app logo" title="Title" height="100px"/>
 
 TODOGENIUS is a user-friendly application that helps you stay organized and manage your tasks efficiently. The app combines the simplicity of a to-do list with the functionality of FullCalendar, a powerful JavaScript library for creating interactive calendars.
 
