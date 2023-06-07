@@ -18,7 +18,7 @@ Users access the web app, tasks are shown in both list and calendar formats. The
 
 <div>
     <img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" title="Django" width="40" height="40"/>&nbsp;
-   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original-wordmark.
+   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-plain-wordmark.
    svg" title="Git" **alt="Git" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
@@ -41,26 +41,26 @@ In the backend, Django is used to interact with the API, while in the frontend, 
     git clone https://github.com/cisco2001/ToDoGenius.git
     cd ToDoGenius
     ```
-2. Clone the repository.
-3. Create and activate a virtual environment.
+2. Create and activate a virtual environment.
     ```
     python3 -m venv .venv
     source .venv/bin/activate
     ```
-4. Install the required dependencies using pip from requirements.txt file.
-    ```pip install -r requirements.txt
+3. Install the required dependencies using pip from requirements.txt file.
     ```
-5. Start the development server.
+    pip install -r requirements.txt
+    ```
+4. Start the development server.
     ```
     python manage.py runserver
     ```
 
 
-### Usage
-
+### Sample screenshot
+<img src="task_manager/static/task_manager/todo_web_app.png" alt="web app screenshot" title="Title" height="100px"/>
 
 ## Author
 
 - Full Name: Mtwa Johakim Mgimwa
 - GitHub: [github.com/cisco2001](https://github.com/cisco2001)
-- LinkedIn: [linkedin.com/in/](https://linkedin.com/in/cisco2001)
+- LinkedIn: [linkedin.com/in/](https://www.linkedin.com/in/mtwa-mgimwa-76b77320a/)
