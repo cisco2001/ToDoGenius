@@ -2,7 +2,7 @@
 
 <img src="task_manager/static/task_manager/logo.png" alt="web app logo" title="Title" height="100px"/>
 
-TODOGENIUS is a user-friendly application that helps you stay organized and manage your tasks efficiently. The app combines the simplicity of a to-do list with the functionality of FullCalendar, a powerful JavaScript library for creating interactive calendars.
+TODOGENIUS is a user-friendly web application that helps you stay organized and manage your tasks efficiently. The app combines the simplicity of a to-do list with the functionality of FullCalendar, a powerful JavaScript library for creating interactive calendars.
 
 ## Table of Contents
 - [How the System Works](#how-the-system-works)
@@ -18,12 +18,11 @@ Users access the web app, tasks are shown in both list and calendar formats. The
 
 <div>
     <img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" title="Django" width="40" height="40"/>&nbsp;
-   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-plain-wordmark.
-   svg" title="Git" **alt="Git" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-plain-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>&nbsp;
 </div>
 In the backend, Django is used to interact with the API, while in the frontend, CSS, HTML, and JS are employed for the user interface.
 
