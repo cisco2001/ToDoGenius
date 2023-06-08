@@ -138,7 +138,7 @@ function filterTasks(selectedOption) {
 /* show description section */
 
 /* edit section */
-$(document).ready(function() {
+/*$(document).ready(function() {
   $('.clickable-icon').click(function(event) {
     event.preventDefault();
     var itemId = $(this).data('itemid');
@@ -151,6 +151,7 @@ $(document).ready(function() {
     console.log(titleId.innerText, descriptionID.innerText);
   });
 });
+*/
 /* calendar section */
 $(document).ready(function() {
   $('#clickableCalendarIcon').click(function(e) {
