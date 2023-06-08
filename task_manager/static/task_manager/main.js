@@ -82,6 +82,7 @@ function deleteItem(itemId) {
 
 /* filter section */
 $(document).ready(function() {
+  
   $('#filter').change(function() {
     var selectedOption = $(this).val();
     filterTasks(selectedOption);
@@ -90,11 +91,47 @@ $(document).ready(function() {
 
 function filterTasks(selectedOption) {
   if (selectedOption === 'pending') {
+    $('#completed-message').hide();
     $('#task-list .list-group-item.completed').hide();
     $('#task-list .list-group-item:not(.completed)').show();
+    if ($('#no-tasks-message').is(':hidden')) {
+      $('#not-completed-message').show();
+    }
+    else {
+      $('#not-completed-message').hide();
+    }
+    var visiblePendingTasksCount = $('#task-list .list-group-item:not(.completed)').length;
+    if (visiblePendingTasksCount === 0) {
+      message = `<div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 text-center mt-5">
+          <h2 class="mb-4">Currently, there are no Pending tasks</h2>
+        </div>
+      </div>
+    </div>`;
+    document.getElementById('not-completed-message').innerHTML = message;
+    }
   } else if (selectedOption === 'completed') {
+    $('#not-completed-message').hide();
     $('#task-list .list-group-item:not(.completed)').hide();
     $('#task-list .list-group-item.completed').show();
+    if ($('#no-tasks-message').is(':hidden')) {
+      $('#completed-message').show();
+    }
+    else {
+      $('#completed-message').hide()
+    }
+    var visibleCompletedTasksCount = $('#task-list .list-group-item.completed:visible').length;
+    if (visibleCompletedTasksCount === 0) {
+      message = `<div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 text-center mt-5">
+          <h2 class="mb-4">Currently, there are no Completed tasks.</h2>
+        </div>
+      </div>
+    </div>`;
+      document.getElementById('completed-message').innerHTML = message;
+    }
   }
 }
 

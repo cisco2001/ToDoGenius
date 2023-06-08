@@ -51,11 +51,11 @@
 <!-- end of update and filter section -->
 <div id="content">
 <div id="list_section">
-{% if api_response.status_code == 200 %}
+{% if status_code == 200 %}
   {% include 'task_manager/to-do.html' with included_entries=entries %}
-{% elif api_response.status_code == 404 %}
+{% elif status_code == 404 %}
   {% include 'task_manager/error.html' %}
-{% elif api_response.status_code == 500 %}
+{% elif status_code == 500 %}
   {% include 'task_manager/500error.html' %}
 {% endif %}
 </div>

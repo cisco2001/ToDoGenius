@@ -40,7 +40,8 @@ def view_tasks(request):
                 context["entries"] = filtered_entries
             else:
                 context["entries"] = entries
-        context["api_response"] = response
+            
+        context["status_code"] = response.status_code
         return render(request, template_name, context)
 
 def all_todos(request):
@@ -139,13 +140,6 @@ def delete_task(request):
         response = requests.delete(url, auth=authentication_credentials)
     # return feedback
         return JsonResponse({'message': 'Item deleted.'})
-
-# function to allow user to edit his task
-def edit_task(request): # this seem to be a more general function
-    # initialize session
-    # update tasks
-    # return feedback
-    pass 
 
 # function to redirect user
 def redirect_view(request):

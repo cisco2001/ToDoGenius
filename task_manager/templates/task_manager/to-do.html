@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container">
+  {% if included_entries %}
   <h3>To-Do List</h3>
   <ul class="list-group" id="task-list">
     {% for entry in included_entries %}
@@ -12,11 +13,14 @@
           <input type="checkbox" class="todo_checkbox" id="{{ entry.key }}">
           {% endif %}
         </div>
-        <div class="title" id="item_title{{ entry.key }}"style="margin-left: 5px;">{{ entry.value.title }}</div>
-        <div class="description" id="item_description{{entry.key}}" style="display: none;"><p>{{ entry.value.description }}</p></div>
+        <div class="title" id="item_title{{ entry.key }}" style="margin-left: 5px;">{{ entry.value.title }}</div>
+        <div class="description" id="item_description{{entry.key}}" style="display: none;">
+          <p>{{ entry.value.description }}</p>
+        </div>
         <div class="actions">
           {% if not entry.value.completed %}
-          <a href="#" id="clickableEditIcon" class="clickable-icon" data-bs-toggle="modal" data-bs-target="#editModal" data-itemid="{{ entry.key }}">
+          <a href="#" id="clickableEditIcon" class="clickable-icon" data-bs-toggle="modal" data-bs-target="#editModal"
+            data-itemid="{{ entry.key }}">
             <i class="fas fa-edit"></i>
           </a>
           {% else %}
@@ -30,5 +34,16 @@
     </li>
     {% endfor %}
   </ul>
+  {% else %}
+  <div class="container" id="no-tasks-message">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 text-center mt-5">
+        <h2 class="mb-4">Currently, there are no tasks available.</h2>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 </div>
+<div id="completed-message"></div>
+<div id="not-completed-message"></div>
 {% endblock content %}
